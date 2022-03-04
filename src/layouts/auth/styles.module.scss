@@ -1,0 +1,21 @@
+.authLayout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+
+  background-image: url(../../assets/images/background.png);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: contain;
+}
+
+.authForm {
+  margin: 0 4rem;
+  max-width: 400px;
+}
+
+.authTitle {
+  margin: 2rem 0;
+  font-weight: bold;
+}

@@ -1,0 +1,15 @@
+.defaultButton {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  color: #1e1e1f;
+  font-weight: 500;
+  margin: 4px 0;
+  width: 100%;
+}
+
+.defaultButton:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+  transition: 0.3s ease-in-out;
+}

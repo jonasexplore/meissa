@@ -1,0 +1,39 @@
+.card {
+  border-radius: 8px;
+}
+
+.image {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image > div > img {
+  max-height: 96px;
+  max-width: 96px;
+}
+
+.heart {
+  font-size: 32px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+
+  &--filled {
+    @extend .heart;
+    color: #ff0000;
+  }
+}
+
+.button {
+  margin-top: 16px;
+}
+
+.ant-card-body {
+  display: flex;
+  flex: column;
+  justify-content: center;
+  align-items: center;
+}

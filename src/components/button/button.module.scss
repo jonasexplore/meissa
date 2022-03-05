@@ -1,4 +1,4 @@
-.defaultButton {
+.button {
   background-color: var(--primary-color);
   border: none;
   border-radius: 8px;
@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-.defaultButton:hover {
+.button:hover {
   background-color: var(--secondary-color);
   color: #fff;
   transition: 0.3s ease-in-out;

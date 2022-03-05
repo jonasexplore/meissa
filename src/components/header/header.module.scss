@@ -1,0 +1,26 @@
+.background {
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  flex: 1;
+  padding: 0 16px;
+  padding-bottom: 1px;
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+}
+
+.menu {
+  background-color: var(--primary-color);
+  flex: 1;
+  justify-content: center;
+}
+
+.button {
+  background-color: transparent;
+  border: 1px solid var(--black);
+  max-width: 72px;
+}

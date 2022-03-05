@@ -8,9 +8,20 @@ import { DefaultInput } from "components/input"
 import logo from 'assets/images/logo.svg'
 
 import styles from './styles.module.scss'
+import Router from "next/router"
 
 const AuthLayout = () => {
   const [loading, setLoading] = useState(false)
+
+  const router = Router.router;
+
+  const handleAuth = () => {
+    setLoading(true)
+
+    setTimeout(() => {
+      router?.push('/')
+    }, 2000)
+  }
 
   return (
     <Layout className={styles.authLayout}>
@@ -23,7 +34,7 @@ const AuthLayout = () => {
         <DefaultInput type="password" placeholder="Senha" />
         <DefaultButton
           loading={loading}
-          onClick={() => setLoading(true)}
+          onClick={handleAuth}
         >
           Entrar
         </DefaultButton>

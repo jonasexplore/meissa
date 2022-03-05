@@ -178,6 +178,11 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.0.tgz#7f698254aadf921e48dda8c0a6b304026b8a9323"
   integrity sha512-JLo+Y592QzIE+q7Dl2pMUtt4q8SKYI5jDrZxrozEQxnGVOyYE+GWK9eLkwTaeN9DDctlaRAQ3TBmzZ1qdLE30A==
 
+"@sindresorhus/class-names@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/class-names/-/class-names-2.0.0.tgz#ad8d7a1819491732021b1c6131cd58d5b99dc256"
+  integrity sha512-TB+lfchVEdXDVZ0huItEbKT7EMnMrGT9gfCI5B9Mg5CjUgyeqwQBcRA66Kwcu4FU3jtOUpUyMYWI1/nDq+VS0Q==
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
@@ -400,6 +405,11 @@ async-validator@^4.0.2:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-4.0.7.tgz#034a0fd2103a6b2ebf010da75183bec299247afe"
   integrity sha512-Pj2IR7u8hmUEDOwB++su6baaRi+QvsgajuFB9j95foM1N2gy5HM4z60hfusIO0fBPG5uLAEl6yCJr1jNSVugEQ==
+
+auto-bind@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/auto-bind/-/auto-bind-5.0.1.tgz#50d8e63ea5a1dddcb5e5e36451c1a8266ffbb2ae"
+  integrity sha512-ooviqdwwgfIfNmDwo94wlshcdzfO64XV0Cg6oDsDYBJfITDz1EngD2z7DkbvCWn+XIMsIqW27sEVF6qcpJrRcg==
 
 axe-core@^4.3.5:
   version "4.4.1"
@@ -1935,6 +1945,15 @@ react-dom@17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.2"
+
+react-extras@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-extras/-/react-extras-3.0.0.tgz#a7f9e324b60ffb0d44b1ca259087bab4666b0fb3"
+  integrity sha512-pI218nDe4SATv9SrNM95uPV87ZFcAw1V36DHhrtZYShjt7sDGETv+3p7e0SwFOUTr3hkION7iNuTCUuXcJdlQw==
+  dependencies:
+    "@sindresorhus/class-names" "^2.0.0"
+    auto-bind "^5.0.1"
+    prop-types "^15.8.1"
 
 react-is@^16.12.0, react-is@^16.13.1:
   version "16.13.1"

@@ -1,14 +1,14 @@
 import { useState } from "react"
 import { Form, Layout, Typography } from "antd"
 import Image from "next/image"
+import Router from "next/router"
 
-import { DefaultButton } from "components/button"
+import { DefaultButton } from "components/buttons"
 import { DefaultInput } from "components/input"
 
 import logo from 'assets/images/logo.svg'
 
 import styles from './styles.module.scss'
-import Router from "next/router"
 
 const AuthLayout = () => {
   const [loading, setLoading] = useState(false)

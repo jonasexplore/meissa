@@ -1,14 +1,14 @@
+import { Dispatch, SetStateAction } from "react";
 import { Badge, Menu } from "antd"
+import { LogoutOutlined } from "@ant-design/icons";
 import Image from "next/image";
+import Router from "next/router";
 
 import logoHeader from 'assets/images/logo-header.svg';
-import { DefaultButton } from "components/button";
+import { DefaultButton } from "components/buttons";
+import { menuItems } from "domain/types";
 
 import styles from './header.module.scss';
-import { LogoutOutlined } from "@ant-design/icons";
-import Router from "next/router";
-import { menuItems } from "domain/types";
-import { Dispatch, SetStateAction } from "react";
 
 const { Item } = Menu
 

@@ -1,3 +1,4 @@
+import { CSSProperties } from "react"
 import { Tag } from "antd"
 import { For } from "react-extras"
 
@@ -7,6 +8,9 @@ import styles from './tagList.module.scss'
 
 type Props = {
   tags: string[]
+  className?: string
+  style?: CSSProperties
+  onClick?: (tag: string) => void
 }
 
 
@@ -15,7 +19,7 @@ const handlerColor = (tag: string) => {
   return selectedColor ? selectedColor[1] : listTypes.Fire
 }
 
-const TagList = ({ tags }: Props) => {
+const TagList = ({ tags, className, style, onClick }: Props) => {
   return (
     <div>
       <For
@@ -23,8 +27,10 @@ const TagList = ({ tags }: Props) => {
         render={(tag, index: number) =>
           <Tag
             key={index}
+            style={style}
             color={`${handlerColor(tag)}`}
-            className={styles.tag}
+            onClick={() => onClick && onClick(tag)}
+            className={`${styles.tag} ${className}`}
           >
             {tag}
           </Tag>}

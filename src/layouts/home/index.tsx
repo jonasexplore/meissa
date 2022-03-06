@@ -1,11 +1,13 @@
-import { Layout, Typography } from "antd"
-import { DefaultCard } from "components/card"
-import { CardList } from "components/cardList"
+import { useState } from "react"
+import { Layout } from "antd"
+import { Choose } from "react-extras"
+
+import { menuItems } from "domain/types"
 import { Container } from "components/container"
 import { Header } from "components/header"
-import { menuItems } from "domain/types"
-import { useState } from "react"
-import { Choose } from "react-extras"
+import { SearchLayout } from "./search"
+import { AllLayout } from "./all"
+import { FavoriteLayout } from "./favorite"
 
 const pokemons = [
   {
@@ -59,31 +61,69 @@ const pokemons = [
   }
 ]
 
-
-
 const HomeLayout = () => {
   const [currentTab, setCurrentTab] = useState<menuItems>(menuItems.favorites);
+  const [isSearching, setIsSearching] = useState<boolean>(false);
+  const [filtered, setFiltered] = useState<any[]>(pokemons);
+  const [filteredAll, setFilteredAll] = useState<any[]>(pokemons);
+
+  const onSearch = (value: string) => {
+    setIsSearching(true)
+
+    const search = pokemons.filter(pokemon => pokemon.title.includes(value))
+    setFiltered(search)
+
+    setIsSearching(false)
+  }
+
+  const onSearchByTag = (tag: string) => {
+    setIsSearching(true)
+
+    if (tag === 'Todos') {
+      setFilteredAll(pokemons)
+      return
+    }
+
+    const search = pokemons.filter(pokemon => pokemon.types.includes(tag))
+    setFilteredAll(search)
+
+    setIsSearching(false)
+  }
+
+  const tagList = pokemons
+    .map(pokemon => pokemon.types.map(type => type))
+    .flat()
+    .filter((value, index, self) => self.indexOf(value) === index)
+
+  tagList.unshift("Todos")
 
   return (
     <div>
       <Header currentTab={currentTab} setCurrentTab={setCurrentTab} />
-      <Layout>
+      <Layout style={{ width: '100%' }}>
         <Container>
           <Choose>
             <Choose.When condition={currentTab === menuItems.favorites}>
               <div style={{ padding: 16, height: '100vh' }}>
-                <Typography.Title level={2}>Olá, você tem 01 pokémon salvo!</Typography.Title>
-                <CardList cards={pokemons} />
+                <FavoriteLayout pokemons={pokemons} />
               </div>
             </Choose.When>
             <Choose.When condition={currentTab === menuItems.search}>
-              <div>
-                <Typography.Title level={2}>Pesquisa</Typography.Title>
+              <div style={{ padding: 16, height: '100vh' }}>
+                <SearchLayout
+                  isSearching={isSearching}
+                  onSearch={onSearch}
+                  cards={filtered}
+                />
               </div>
             </Choose.When>
             <Choose.When condition={currentTab === menuItems.all}>
-              <div>
-                <Typography.Title level={2}>Todos</Typography.Title>
+              <div style={{ padding: 16, height: '100vh' }}>
+                <AllLayout
+                  tags={tagList}
+                  cards={filteredAll}
+                  onSearch={onSearchByTag}
+                />
               </div>
             </Choose.When>
           </Choose>

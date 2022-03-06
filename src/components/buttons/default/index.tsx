@@ -1,6 +1,6 @@
 import { Button, ButtonProps } from "antd";
 
-import styles from './button.module.scss';
+import styles from './defaultButton.module.scss';
 
 const DefaultButton = ({ children, ...props }: ButtonProps) => (
   <Button

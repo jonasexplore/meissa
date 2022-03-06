@@ -1,0 +1,12 @@
+.heart {
+  font-size: 32px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+
+  &--filled {
+    @extend .heart;
+    color: #ff0000;
+  }
+}

@@ -2,7 +2,7 @@ import { CSSProperties } from "react"
 import { Tag } from "antd"
 import { For } from "react-extras"
 
-import { listTypes } from "domain/types"
+import { typeList } from "models/enums"
 
 import styles from './tagList.module.scss'
 
@@ -15,8 +15,8 @@ type Props = {
 
 
 const handlerColor = (tag: string) => {
-  const selectedColor = Object.entries(listTypes).find(([key]) => key === tag)
-  return selectedColor ? selectedColor[1] : listTypes.Fire
+  const selectedColor = Object.entries(typeList).find(([key]) => key === tag)
+  return selectedColor ? selectedColor[1] : typeList.fire
 }
 
 const TagList = ({ tags, className, style, onClick }: Props) => {

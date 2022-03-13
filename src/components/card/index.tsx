@@ -1,43 +1,64 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Card, Image, Typography } from "antd";
 
-import { DefaultButton, FavoriteButton } from "components/buttons";
+import { Pokemon } from "models";
+import { PokemonContext } from "contexts";
 import { TagList } from "components/tagList";
+import { DefaultModal } from "components/modal";
+import { DefaultButton, FavoriteButton } from "components/buttons";
 
 import styles from './card.module.scss';
 
 const { Title, Paragraph } = Typography
 
-type CardProps = {
-  id: string,
-  title: string,
-  types: string[],
-  imageUrl: string,
-  isFavorite: boolean,
-}
+type CardProps = Pokemon & {
+  isLoading?: boolean
+};
 
-const DefaultCard = ({ id, title, types, imageUrl, isFavorite }: CardProps) => {
-  const [isFav, setIsFav] = useState(isFavorite)
+const DefaultCard = (
+  { isLoading = false, ...pokemon }: CardProps
+) => {
+  const { id, isFavorite, types, sprites, name } = pokemon
+  const { setFavoritePokemon } = useContext(PokemonContext)
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
   const handleFavorite = () => {
-    setIsFav(!isFav)
+    setFavoritePokemon(id)
   }
 
+  const tags = types.map((type) => type.type.name);
+
   return (
-    <Card hoverable className={styles.card}>
-      <FavoriteButton isFavorite={isFav} onClick={handleFavorite} />
+    <>
+      <Card hoverable className={styles.card} loading={isLoading}>
+        <FavoriteButton isFavorite={isFavorite} onClick={handleFavorite} />
 
-      <div className={styles.image}>
-        <Image preview={false} alt={title} src={imageUrl} />
-      </div>
+        <div className={styles.image}>
+          <Image
+            alt={name}
+            preview={false}
+            src={sprites?.other?.home?.front_default}
+          />
+        </div>
 
-      <Title level={3} style={{ marginTop: 4, marginBottom: 0 }}>{title}</Title>
-      <Paragraph>ID: {id}</Paragraph>
+        <Title level={3} style={{ marginTop: 4, marginBottom: 0 }}>{name}</Title>
+        <Paragraph>ID: {id}</Paragraph>
 
-      <TagList tags={types} />
+        <TagList tags={tags} />
 
-      <DefaultButton className={styles.button}>Ver detalhes</DefaultButton>
-    </Card>
+        <DefaultButton
+          className={styles.button}
+          onClick={() => setIsModalVisible(true)}
+        >
+          Ver detalhes
+        </DefaultButton>
+      </Card>
+      <DefaultModal
+        onCancel={() => setIsModalVisible(false)}
+        pokemon={pokemon}
+        visible={isModalVisible}
+      />
+    </>
   )
 }
 

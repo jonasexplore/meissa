@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.backgroundBar {
+  flex: 1;
+  height: 8px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+
+  border-radius: 4px;
+  margin: 1rem;
+}
+
+.filledBar {
+  height: 8px;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+
+.label {
+  margin-left: 1rem;
+  min-width: 32px;
+}

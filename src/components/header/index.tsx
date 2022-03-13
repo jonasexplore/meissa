@@ -6,7 +6,7 @@ import Router from "next/router";
 
 import logoHeader from 'assets/images/logo-header.svg';
 import { DefaultButton } from "components/buttons";
-import { menuItems } from "domain/types";
+import { menuItems } from "models/enums";
 
 import styles from './header.module.scss';
 
@@ -15,9 +15,10 @@ const { Item } = Menu
 type Props = {
   currentTab: menuItems
   setCurrentTab: Dispatch<SetStateAction<menuItems>>
+  numberOfFavorites?: number
 }
 
-const Header = ({ currentTab, setCurrentTab }: Props) => {
+const Header = ({ currentTab, setCurrentTab, numberOfFavorites }: Props) => {
   const router = Router.router;
 
   const handleClosed = () => {
@@ -35,7 +36,7 @@ const Header = ({ currentTab, setCurrentTab }: Props) => {
           onClick={({ key }) => setCurrentTab(key as menuItems)}
         >
           <Item key={menuItems.favorites}>
-            Favoritos <Badge count={1} style={{
+            Favoritos <Badge count={numberOfFavorites || 0} style={{
               backgroundColor: "#000",
               borderColor: "#000"
             }} />

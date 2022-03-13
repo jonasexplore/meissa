@@ -7,7 +7,7 @@ type Props = {
   onSearch: (value: string) => void
 }
 
-const AllLayout = ({ cards, tags, onSearch }: Props) => {
+const CategoryLayout = ({ cards, tags, onSearch }: Props) => {
   return (
     <>
       <TagList tags={tags} onClick={onSearch} style={{
@@ -20,4 +20,4 @@ const AllLayout = ({ cards, tags, onSearch }: Props) => {
   )
 }
 
-export { AllLayout }
+export { CategoryLayout }

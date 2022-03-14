@@ -3,6 +3,7 @@ import { Tag } from "antd"
 import { For } from "react-extras"
 
 import { typeList } from "models/enums"
+import { getEnumValue } from "utils"
 
 import styles from './tagList.module.scss'
 
@@ -13,13 +14,12 @@ type Props = {
   onClick?: (tag: string) => void
 }
 
-
-const handlerColor = (tag: string) => {
-  const selectedColor = Object.entries(typeList).find(([key]) => key === tag)
-  return selectedColor ? selectedColor[1] : typeList.fire
-}
-
 const TagList = ({ tags, className, style, onClick }: Props) => {
+
+  const handlerColor = (tag: string) => {
+    return getEnumValue(typeList, tag) ?? typeList.fire
+  }
+
   return (
     <div>
       <For

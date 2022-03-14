@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from "react";
+
 import { Pokemon } from "models";
-import { pokemonService } from "services";
 import { env } from "config/env";
+import { getIdByUrl } from "utils";
+import { pokemonService } from "services";
 import { pokemonMapper } from "utils/mappers";
 
 type PokemonContextType = {
@@ -48,7 +50,8 @@ export const PokemonProvider = ({ children }: Props) => {
       const promisses = [];
 
       for (const data of response) {
-        promisses.push(pokemonService.getPokemon(data.url))
+        const pokemonId = getIdByUrl(data.url)
+        promisses.push(pokemonService.getPokemon(pokemonId))
       }
 
       const pokemons = await Promise.all([...promisses]);

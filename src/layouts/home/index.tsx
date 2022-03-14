@@ -2,20 +2,23 @@ import { useContext, useState } from "react"
 import { Layout } from "antd"
 import { Choose } from "react-extras"
 
+import { Pokemon } from "models"
 import { menuItems } from "models/enums"
-import { Container } from "components/container"
-import { Header } from "components/header"
 import { SearchLayout } from "./search"
-import { CategoryLayout } from "./category"
-import { FavoriteLayout } from "./favorite"
 import { PokemonContext } from "contexts"
+import { FavoriteLayout } from "./favorite"
+import { CategoryLayout } from "./category"
+import { Header } from "components/header"
+import { Container } from "components/container"
+
+import styles from './home.module.scss'
 
 const HomeLayout = () => {
   const { pokemons, isLoading } = useContext(PokemonContext)
   const [currentTab, setCurrentTab] = useState<menuItems>(menuItems.favorites);
   const [isSearching, setIsSearching] = useState<boolean>(false);
-  const [filtered, setFiltered] = useState<any[]>(pokemons);
-  const [filteredAll, setFilteredAll] = useState<any[]>(pokemons);
+  const [filtered, setFiltered] = useState<Pokemon[]>(pokemons);
+  const [filteredAll, setFilteredAll] = useState<Pokemon[]>(pokemons);
 
   const defaultTag = 'Todos'
 
@@ -31,8 +34,6 @@ const HomeLayout = () => {
   }
 
   const onSearchByTag = (tag: string) => {
-    setIsSearching(true)
-
     if (tag === defaultTag) {
       setFilteredAll(pokemons)
       return
@@ -43,8 +44,6 @@ const HomeLayout = () => {
     )
 
     setFilteredAll(search)
-
-    setIsSearching(false)
   }
 
   const tagList = pokemons
@@ -61,16 +60,20 @@ const HomeLayout = () => {
         setCurrentTab={setCurrentTab}
         numberOfFavorites={favoritePokemons.length}
       />
-      <Layout style={{ width: '100%' }}>
+      <Layout style={{ height: '100%', minHeight: '100vh' }}>
         <Container>
           <Choose>
             <Choose.When condition={currentTab === menuItems.favorites}>
-              <div style={{ padding: 16, height: '100vh' }}>
-                <FavoriteLayout pokemons={favoritePokemons} isLoading={isLoading} />
+              <div className={styles.container}>
+                <FavoriteLayout
+                  pokemons={favoritePokemons}
+                  isLoading={isLoading}
+                  onPush={() => setCurrentTab(menuItems.search)}
+                />
               </div>
             </Choose.When>
             <Choose.When condition={currentTab === menuItems.search}>
-              <div style={{ padding: 16, height: '100vh' }}>
+              <div className={styles.container}>
                 <SearchLayout
                   isSearching={isSearching}
                   onSearch={onSearch}
@@ -79,7 +82,7 @@ const HomeLayout = () => {
               </div>
             </Choose.When>
             <Choose.When condition={currentTab === menuItems.all}>
-              <div style={{ padding: 16, height: '100vh' }}>
+              <div className={styles.container}>
                 <CategoryLayout
                   tags={tagList}
                   cards={filteredAll}

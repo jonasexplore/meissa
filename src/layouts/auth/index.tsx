@@ -25,16 +25,16 @@ const AuthLayout = () => {
 
   return (
     <Layout className={styles.authLayout}>
-      <Form className={styles.authForm}>
+      <Form className={styles.authForm} onFinish={handleAuth}>
         <Image src={logo} width={200} height={76} alt="pokemon" />
         <Typography.Title className={styles.authTitle}>
           Comece a coletar pokémons!
         </Typography.Title>
-        <DefaultInput type="email" placeholder="Email" />
-        <DefaultInput type="password" placeholder="Senha" />
+        <DefaultInput required type="email" placeholder="Email" />
+        <DefaultInput required type="password" placeholder="Senha" />
         <DefaultButton
+          htmlType="submit"
           loading={loading}
-          onClick={handleAuth}
         >
           Entrar
         </DefaultButton>

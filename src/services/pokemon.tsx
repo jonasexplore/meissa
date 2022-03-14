@@ -3,11 +3,8 @@ import { ListPokemons, Pokemon } from "models";
 import { apiResponse } from "./apiResponse";
 
 const pokemonService = {
-  getPokemon: async (url: string): Promise<Pokemon> => {
-    const [, pokemon] = url.split(/pokemon\//);
-    const id = pokemon.split("/")[0];
-
-    const response = await api.get<Pokemon>(`/pokemon/${id || "25"}`);
+  getPokemon: async (id: string): Promise<Pokemon> => {
+    const response = await api.get<Pokemon>(`/pokemon/${id}`);
     return apiResponse(response);
   },
 

@@ -24,7 +24,7 @@ export const PokemonProvider = ({ children }: Props) => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
   const getPokemon = (id: number) => {
-    return pokemons.find((pokemon: any) => pokemon.id === id);
+    return pokemons.find((pokemon) => pokemon.id === id);
   };
 
   const setFavoritePokemon = (id: number) => {

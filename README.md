@@ -101,10 +101,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 #### **Front-end**  ([React](https://reactjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
 
--   **[styled-components](https://styled-components.com/)**
 -   **[Nextjs](https://nextjs.org/)**
--   **[React-content-loader](https://www.npmjs.com/package/react-content-loader)**
--   **[React-Lottie](https://lottiefiles.com/)**
+-   **[ant-design](https://ant.design/docs/react/introduce)**
 
 > Veja o arquivo  [package.json](https://github.com/jonasexplore/meissa/blob/master/package.json)
 > 

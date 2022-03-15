@@ -47,7 +47,7 @@ Projeto desenvolvido e oferecido pela [Brisalabs](https://github.com/brisalabs).
 - [x] Filtros de busca por categória e nome do pokemón.
 - [x] Visualização detalhada de cada pokemón.
 - [x] É possível favoritar um pokemón e encontrá-lo na página de favoritos.
-- [x] Tema escuro (Dark mode)
+- [] Tema escuro (Dark mode)
 
 
 ---
@@ -78,10 +78,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/FalLying/pokedex.git
+$ git clone https://github.com/jonasexplore/meissa.git
 
 # Acesse a pasta do projeto no seu terminal/cmd
-$ cd pokedex
+$ cd meissa
 
 # Instale as dependências
 $ npm install

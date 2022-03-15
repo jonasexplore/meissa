@@ -1,34 +1,115 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/jonasexplore/meissa?color=%2304D361">
 
-First, run the development server:
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/jonasexplore/meissa">
+  
+  <a href="https://github.com/jonasexplore/meissa/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/jonasexplore/meissa">
+  </a>
+    
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+   <a href="https://github.com/jonasexplore/meissa/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/jonasexplore/meissa?style=social">
+  </a>
+</p>
+<p align="center">
+  <img align="center" alt="pikachu" width=64 src="https://emojis.slackmojis.com/emojis/images/1553689407/5541/pikachu.gif?1553689407">
+</p>
+
+<h4 align="center"> 
+	Pokedéx
+</h4>
+
+<p align="center">
+ <a href="#-sobre-o-projeto">Sobre</a> •
+ <a href="#-funcionalidades">Funcionalidades</a> •
+ <a href="#-layout">Layout</a> • 
+ <a href="#-como-executar-o-projeto">Como executar</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
+ <a href="#user-content--licença">Licença</a>
+</p>
+
+
+## 💻 Sobre o projeto
+
+Pokedéx é um dos desafios de front-end da Brisalabs que tem o objetivo de testar os conhecimentos voltados a componentização, gerenciamento de estados, requisições a API externa e outros.
+
+
+Projeto desenvolvido e oferecido pela [Brisalabs](https://github.com/brisalabs).
+
+---
+
+## ⚙️ Funcionalidades
+
+- [x] Tela inicial de login (Demonstrativa).
+- [x] Listagem de pokemóns limitados a 20.
+- [x] Filtros de busca por categória e nome do pokemón.
+- [x] Visualização detalhada de cada pokemón.
+- [x] É possível favoritar um pokemón e encontrá-lo na página de favoritos.
+- [x] Tema escuro (Dark mode)
+
+
+---
+
+## 🎨 Layout
+
+O layout da aplicação está disponível no Figma:
+
+<a href="https://www.figma.com/file/o91t40vYqx9cmQL4nvf9PC/Desafio-Dev-Brisalabs?node-id=6%3A44">
+  <img alt="Made by Brisalabs" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
+</a>
+
+---
+
+## 🚀 Como executar o projeto
+
+
+💡Tanto o Frontend quanto o Mobile precisam que o Backend esteja sendo executado para funcionar.
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+#### 🧭 Rodando a aplicação
 
 ```bash
-npm run dev
-# or
-yarn dev
+
+# Clone este repositório
+$ git clone https://github.com/FalLying/pokedex.git
+
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd pokedex
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev
+
+# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tecnologias
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+As seguintes ferramentas foram usadas na construção do projeto:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### **Front-end**  ([React](https://reactjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
 
-## Learn More
+-   **[styled-components](https://styled-components.com/)**
+-   **[Nextjs](https://nextjs.org/)**
+-   **[React-content-loader](https://www.npmjs.com/package/react-content-loader)**
+-   **[React-Lottie](https://lottiefiles.com/)**
 
-To learn more about Next.js, take a look at the following resources:
+> Veja o arquivo  [package.json](https://github.com/jonasexplore/meissa/blob/master/package.json)
+> 
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Licença
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Este projeto esta sobe a licença [MIT](./LICENSE).
